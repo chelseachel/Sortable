@@ -1,7 +1,7 @@
 {
-	"name": "sortablejs",
+	"name": "sortable-axis",
 	"exportName": "Sortable",
-	"version": "1.10.2",
+	"version": "1.0.0",
 	"devDependencies": {
 		"@babel/core": "^7.4.4",
 		"@babel/plugin-transform-object-assign": "^7.2.0",
@@ -15,7 +15,7 @@
 		"testcafe-reporter-xunit": "^2.1.0",
 		"uglify-js": "^3.5.12"
 	},
-	"description": "JavaScript library for reorderable drag-and-drop lists on modern browsers and touch devices. No jQuery required. Supports Meteor, AngularJS, React, Polymer, Vue, Knockout and any CSS library, e.g. Bootstrap.",
+	"description": "A lock-axis version of Sortable.js, supporting fixed axis on horizontal or vertical direction.",
 	"main": "./Sortable.js",
 	"module": "modular/sortable.esm.js",
 	"scripts": {
@@ -28,13 +28,9 @@
 		"test:compat": "node ./scripts/test-compat.js",
 		"test": "node ./scripts/test.js"
 	},
-	"maintainers": [
-		"Konstantin Lebedev <ibnRubaXa@gmail.com>",
-		"Owen Mills <owen23355@gmail.com>"
-	],
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/SortableJS/Sortable.git"
+		"url": "git://github.com/chelseachel/Sortable-Lock-Axis.git"
 	},
 	"files": [
 		"Sortable.js",
@@ -43,6 +39,7 @@
 	],
 	"keywords": [
 		"sortable",
+		"axis",
 		"reorder",
 		"drag",
 		"meteor",

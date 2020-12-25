@@ -1,5 +1,5 @@
 /**!
- * Sortable 1.10.2
+ * Sortable 1.0.0
  * @author	RubaXa   <trash@rubaxa.org>
  * @author	owenm    <owen23355@gmail.com>
  * @license MIT
@@ -132,7 +132,7 @@
     throw new TypeError("Invalid attempt to spread non-iterable instance");
   }
 
-  var version = "1.10.2";
+  var version = "1.0.0";
 
   function userAgent(pattern) {
     if (typeof window !== 'undefined' && window.navigator) {
@@ -754,7 +754,7 @@
           target.animatingX = !!translateX;
           target.animatingY = !!translateY;
           css(target, 'transform', 'translate3d(' + translateX + 'px,' + translateY + 'px,0)');
-          repaint(target); // repaint
+          this.forRepaintDummy = repaint(target); // repaint
 
           css(target, 'transition', 'transform ' + duration + 'ms' + (this.options.easing ? ' ' + this.options.easing : ''));
           css(target, 'transform', 'translate3d(0,0,0)');
@@ -1322,6 +1322,11 @@
 
       if (originalTarget.isContentEditable) {
         return;
+      } // Safari ignores further event handling after mousedown
+
+
+      if (!this.nativeDraggable && Safari && target && target.tagName.toUpperCase() === 'SELECT') {
+        return;
       }
 
       target = closest(target, options.draggable, el, false);
@@ -1630,6 +1635,7 @@
     evt) {
       if (tapEvt) {
         var options = this.options,
+            axis = options.fallbackAxis,
             fallbackTolerance = options.fallbackTolerance,
             fallbackOffset = options.fallbackOffset,
             touch = evt.touches ? evt.touches[0] : evt,
@@ -1637,8 +1643,8 @@
             scaleX = ghostEl && ghostMatrix && ghostMatrix.a,
             scaleY = ghostEl && ghostMatrix && ghostMatrix.d,
             relativeScrollOffset = PositionGhostAbsolutely && ghostRelativeParent && getRelativeScrollOffset(ghostRelativeParent),
-            dx = (touch.clientX - tapEvt.clientX + fallbackOffset.x) / (scaleX || 1) + (relativeScrollOffset ? relativeScrollOffset[0] - ghostRelativeParentInitialScroll[0] : 0) / (scaleX || 1),
-            dy = (touch.clientY - tapEvt.clientY + fallbackOffset.y) / (scaleY || 1) + (relativeScrollOffset ? relativeScrollOffset[1] - ghostRelativeParentInitialScroll[1] : 0) / (scaleY || 1); // only set the status to dragging, when we are actually dragging
+            dx = axis === 'y' ? 0 : (touch.clientX - tapEvt.clientX + fallbackOffset.x) / (scaleX || 1) + (relativeScrollOffset ? relativeScrollOffset[0] - ghostRelativeParentInitialScroll[0] : 0) / (scaleX || 1),
+            dy = axis === 'x' ? 0 : (touch.clientY - tapEvt.clientY + fallbackOffset.y) / (scaleY || 1) + (relativeScrollOffset ? relativeScrollOffset[1] - ghostRelativeParentInitialScroll[1] : 0) / (scaleY || 1); // only set the status to dragging, when we are actually dragging
 
         if (!Sortable.active && !awaitingDragStarted) {
           if (fallbackTolerance && Math.max(Math.abs(touch.clientX - this._lastX), Math.abs(touch.clientY - this._lastY)) < fallbackTolerance) {
@@ -2433,7 +2439,7 @@
         pluginEvent('showClone', this);
         if (Sortable.eventCanceled) return; // show clone at dragEl or original position
 
-        if (rootEl.contains(dragEl) && !this.options.group.revertClone) {
+        if (dragEl.parentNode == rootEl && !this.options.group.revertClone) {
           rootEl.insertBefore(cloneEl, dragEl);
         } else if (nextEl) {
           rootEl.insertBefore(cloneEl, nextEl);
