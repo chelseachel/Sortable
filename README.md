@@ -1,6 +1,6 @@
 # Sortable supports lock-axis
 
-A lock-axis version of Sortable.js, supporting fixed axis on horizontal or vertical direction.<br>
+A lock-axis version of Sortable.js. Supports fixed axis on horizontal or vertical direction.<br>
 <br>
 To lock axis, just add options fallbackAxis: 'x' or 'y' and forceFallback: true.<br>
 Checkout the simple list example in the demo page.<br>
