@@ -1,54 +1,11 @@
-# Sortable &nbsp; [![Financial Contributors on Open Collective](https://opencollective.com/Sortable/all/badge.svg?label=financial+contributors)](https://opencollective.com/Sortable) [![CircleCI](https://circleci.com/gh/SortableJS/Sortable.svg?style=svg)](https://circleci.com/gh/SortableJS/Sortable) [![DeepScan grade](https://deepscan.io/api/teams/3901/projects/5666/branches/43977/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3901&pid=5666&bid=43977) [![](https://data.jsdelivr.com/v1/package/npm/sortablejs/badge)](https://www.jsdelivr.com/package/npm/sortablejs) [![npm](https://img.shields.io/npm/v/sortablejs.svg)](https://www.npmjs.com/package/sortablejs)
+# Sortable supports lock-axis
 
-Sortable is a JavaScript library for reorderable drag-and-drop lists.
-
-Demo: http://sortablejs.github.io/Sortable/
-
-[<img width="250px" src="https://raw.githubusercontent.com/SortableJS/Sortable/HEAD/st/saucelabs.svg?sanitize=true">](https://saucelabs.com/)
-
-## Features
-
- * Supports touch devices and [modern](http://caniuse.com/#search=drag) browsers (including IE9)
- * Can drag from one list to another or within the same list
- * CSS animation when moving items
- * Supports drag handles *and selectable text* (better than voidberg's html5sortable)
- * Smart auto-scrolling
- * Advanced swap detection
- * Smooth animations
- * [Multi-drag](https://github.com/SortableJS/Sortable/tree/master/plugins/MultiDrag) support
- * Support for CSS transforms
- * Built using native HTML5 drag and drop API
- * Supports
-   * [Meteor](https://github.com/SortableJS/meteor-sortablejs)
-   * Angular
-     * [2.0+](https://github.com/SortableJS/angular-sortablejs)
-     * [1.&ast;](https://github.com/SortableJS/angular-legacy-sortablejs)
-   * React
-     * [ES2015+](https://github.com/SortableJS/react-sortablejs)
-     * [Mixin](https://github.com/SortableJS/react-mixin-sortablejs)
-   * [Knockout](https://github.com/SortableJS/knockout-sortablejs)
-   * [Polymer](https://github.com/SortableJS/polymer-sortablejs)
-   * [Vue](https://github.com/SortableJS/Vue.Draggable)
-   * [Ember](https://github.com/SortableJS/ember-sortablejs)
- * Supports any CSS library, e.g. [Bootstrap](#bs)
- * Simple API
- * Support for [plugins](#plugins)
- * [CDN](#cdn)
- * No jQuery required (but there is [support](https://github.com/SortableJS/jquery-sortablejs))
- * Typescript definitions at `@types/sortablejs`
-
-
-<br/>
-
-
-### Articles
-
- * [Dragging Multiple Items in Sortable](https://github.com/SortableJS/Sortable/wiki/Dragging-Multiple-Items-in-Sortable) (April 26, 2019)
- * [Swap Thresholds and Direction](https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction) (December 2, 2018)
- * [Sortable v1.0 — New capabilities](https://github.com/SortableJS/Sortable/wiki/Sortable-v1.0-—-New-capabilities/) (December 22, 2014)
- * [Sorting with the help of HTML5 Drag'n'Drop API](https://github.com/SortableJS/Sortable/wiki/Sorting-with-the-help-of-HTML5-Drag'n'Drop-API/) (December 23, 2013)
-
-<br/>
+A lock-axis version of Sortable.js, supporting fixed axis on horizontal or vertical direction.<br>
+<br>
+To lock axis, just add options fallbackAxis: 'x' or 'y' and forceFallback: true.<br>
+Checkout the simple list example in the demo page.<br>
+<br>
+Demo: https://chelseachel.github.io/Sortable-Lock-Axis/
 
 ### Getting Started
 

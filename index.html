@@ -61,7 +61,9 @@
 			<div style="padding: 0" class="col-12">
 <pre class="prettyprint">new Sortable(example1, {
     animation: 150,
-    ghostClass: 'blue-background-class'
+		ghostClass: 'blue-background-class',
+		forceFallback: true,
+		fallbackAxis: "y"
 });</pre>
 			</div>
 		</div>
@@ -192,7 +194,7 @@ new Sortable(example4Right, {
 			<div style="padding: 0" class="col-12">
 <pre class="prettyprint">new Sortable(example5, {
     handle: '.handle', // handle's class
-    animation: 150
+		animation: 150
 });</pre>
 			</div>
 		</div>
